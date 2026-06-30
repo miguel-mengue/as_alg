@@ -2,11 +2,7 @@ package service;
 
 import structures.ListaDuplamenteLigadaCircular;
 import structures.NoCasa;
-import model.Casa;
-import model.ConfiguracaoJogo;
-import model.Imovel;
-import model.Jogador;
-import model.TipoCasa;
+import model.*;
 import java.util.List;
 
 public class TabuleiroService {
@@ -37,6 +33,14 @@ public class TabuleiroService {
 
             if (contador % 5 == 0) {
                 tabuleiro.adicionar(new Casa("RESTITUIÇÃO", TipoCasa.RESTITUICAO));
+            }
+
+            if (contador % 6 == 0) {
+                tabuleiro.adicionar(new Casa("PRISÃO", TipoCasa.PRISAO));
+            }
+
+            if (contador % 7 == 0) {
+                tabuleiro.adicionar(new Casa("LEILÃO", TipoCasa.LEILAO));
             }
         }
     }
@@ -87,7 +91,12 @@ public class TabuleiroService {
         jogador.adicionarSaldo(salarioFinal);
         jogador.incrementarVolta();
 
-        System.out.printf("%s recebeu salário de R$ %.2f%n", jogador.getNome(), salarioFinal);
+        System.out.printf("%n>>> %s passou pelo INÍCIO e recebeu salário de R$ %.2f%n",
+                jogador.getNome(), salarioFinal);
+
+        if (jogador.getPersonagem() == TipoPersonagem.ESPECULADOR) {
+            System.out.println("    (Especulador: +20% de bônus no salário)");
+        }
     }
 
     public void exibirTabuleiro() {

@@ -6,6 +6,11 @@ public enum TipoPersonagem {
         public double ajustarSalario(double salarioOriginal) {
             return salarioOriginal * 1.20;
         }
+
+        @Override
+        public double ajustarImposto(double impostoOriginal) {
+            return impostoOriginal * 1.10;
+        }
     },
     NEGOCIANTE,
     ADVOGADO {

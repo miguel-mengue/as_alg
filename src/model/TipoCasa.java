@@ -5,5 +5,7 @@ public enum TipoCasa {
     IMOVEL,
     IMPOSTO,
     RESTITUICAO,
-    SORTE_REVES
+    SORTE_REVES,
+    PRISAO,
+    LEILAO
 }

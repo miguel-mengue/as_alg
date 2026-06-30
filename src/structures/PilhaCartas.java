@@ -61,12 +61,7 @@ public class PilhaCartas {
             return;
         }
 
-        System.out.println("""
-                
-                =================================
-                BARALHO ESGOTADO!
-                Reabastecendo e embaralhando...
-                =================================""");
+        System.out.println("\nBaralho esgotado! Remontando e embaralhando...\n");
 
         limpar();
         List<Carta> embaralhadas = new ArrayList<>(cartasOriginais);

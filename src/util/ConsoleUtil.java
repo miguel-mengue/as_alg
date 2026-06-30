@@ -39,4 +39,25 @@ public class ConsoleUtil {
             System.out.println("Entrada inválida. O campo não pode ficar vazio.");
         }
     }
+
+    public static double lerDouble(Scanner scanner, String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            try {
+                return Double.parseDouble(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Por favor, digite um número decimal.");
+            }
+        }
+    }
+
+    public static double lerDoublePositivo(Scanner scanner, String prompt) {
+        while (true) {
+            double valor = lerDouble(scanner, prompt);
+            if (valor >= 0) {
+                return valor;
+            }
+            System.out.println("O valor deve ser maior ou igual a zero.");
+        }
+    }
 }

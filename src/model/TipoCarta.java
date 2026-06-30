@@ -6,5 +6,6 @@ public enum TipoCarta {
     AVANCAR,
     RETROCEDER,
     IR_INICIO,
-    VOLTAR_POSICAO_ANTERIOR
-}
+    VOLTAR_POSICAO_ANTERIOR,
+    IR_PRISAO
+}

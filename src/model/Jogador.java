@@ -15,6 +15,9 @@ public class Jogador {
     private final List<Imovel> propriedades;
     private int voltasCompletas;
     private boolean falido;
+    private boolean preso;
+    private int tentativasPrisao;
+    private boolean usouIsencaoAdvogado;
 
     public Jogador(String nome, double saldo, TipoPersonagem personagem) {
         this.nome = nome;
@@ -23,6 +26,9 @@ public class Jogador {
         this.propriedades = new ArrayList<>();
         this.voltasCompletas = 0;
         this.falido = false;
+        this.preso = false;
+        this.tentativasPrisao = 0;
+        this.usouIsencaoAdvogado = false;
     }
 
     public void adicionarSaldo(double valor) {
@@ -117,24 +123,33 @@ public class Jogador {
         this.falido = falido;
     }
 
+    public boolean isPreso() {
+        return preso;
+    }
+
+    public void setPreso(boolean preso) {
+        this.preso = preso;
+    }
+
+    public int getTentativasPrisao() {
+        return tentativasPrisao;
+    }
+
+    public void setTentativasPrisao(int tentativasPrisao) {
+        this.tentativasPrisao = tentativasPrisao;
+    }
+
+    public boolean isUsouIsencaoAdvogado() {
+        return usouIsencaoAdvogado;
+    }
+
+    public void setUsouIsencaoAdvogado(boolean usouIsencaoAdvogado) {
+        this.usouIsencaoAdvogado = usouIsencaoAdvogado;
+    }
+
     @Override
     public String toString() {
-        return """
-                
-                ========================
-                Nome: %s
-                Saldo: R$ %.2f
-                Personagem: %s
-                Patrimônio: R$ %.2f
-                Imóveis: %d
-                Voltas: %d
-                ========================""".formatted(
-                nome,
-                saldo,
-                personagem,
-                calcularPatrimonio(),
-                propriedades.size(),
-                voltasCompletas
-        );
+        return String.format("%s | %s | Saldo: R$ %.2f | Patrimônio: R$ %.2f | Imóveis: %d | Voltas: %d",
+                nome, personagem, saldo, calcularPatrimonio(), propriedades.size(), voltasCompletas);
     }
 }
